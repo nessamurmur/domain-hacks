@@ -2,11 +2,11 @@
   (:require [clojure.string :as string :only (split-lines
                                               replace)]))
 
-(def words (string/split-lines
-            (slurp "./resources/words.txt")))
+(def ^:dynamic words (string/split-lines
+                      (slurp "./resources/words.txt")))
 
-(def tlds (string/split-lines
-           (slurp "./resources/tlds.txt")))
+(def ^:dynamic tlds (string/split-lines
+                     (slurp "./resources/tlds.txt")))
 
 (defn replace-last [word pattern replacement]
   (str (.substring word 0 (- (count word)
