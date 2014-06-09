@@ -19,3 +19,9 @@
   (testing "finds domains for a given tld"
     (binding [words '("time" "mime" "soup" "salad")]
       (is (= '("ti.me" "mi.me") (domains-for "me"))))))
+
+(deftest test-possible-domains
+  (testing "lists all posible domains"
+    (binding [words '("time" "mime" "soup" "salad")]
+      (binding [tlds '("me")]
+        (is (= '("ti.me" "mi.me") (domains-for "me")))))))
